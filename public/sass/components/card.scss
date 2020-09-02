@@ -1,0 +1,63 @@
+.card {
+  //   width: 50vw;
+  width: 100%;
+  display: flex;
+  font-size: $font-l;
+  color: $color-black;
+  justify-content: space-between;
+  border: $color-secondary 3px solid;
+  background-color: $color-white;
+  border-radius: $ds-xs;
+  padding: $ds-l;
+  margin-bottom: $ds-l;
+
+  &__name {
+    color: black;
+  }
+
+  &__action {
+    color: gray;
+    font-size: $font-m;
+  }
+
+  &--vertical {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  &__item {
+    font-size: $font-m;
+    margin-right: 1rem;
+    &:not(:first-child) {
+      font-size: $font-s;
+    }
+    display: flex;
+    align-items: center;
+    & img {
+      min-height: 50px;
+      min-width: 50px;
+      max-height: 80px;
+      max-width: 80px;
+    }
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: $font-m;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  th {
+    background-color: $color-secondary;
+    color: white;
+  }
+}

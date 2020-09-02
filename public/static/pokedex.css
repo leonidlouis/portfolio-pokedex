@@ -1,5 +1,73 @@
 /* CUSTOM RESET */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -11,17 +79,31 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 body {
   line-height: 1; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block; }
 
 nav ul {
   list-style: none; }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none; }
 
-blockquote:before, blockquote:after, q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none; }
 
 a {
@@ -48,7 +130,8 @@ mark {
 del {
   text-decoration: line-through; }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted;
   cursor: help; }
 
@@ -65,7 +148,8 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
-input, select {
+input,
+select {
   vertical-align: middle; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -372,8 +456,17 @@ template {
 [hidden] {
   display: none; }
 
-.container-padded {
+.container {
   padding: 1.5rem; }
+  .container--center {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto; }
+  .container--flex {
+    display: flex; }
+  .container--width-80 {
+    width: 80vw; }
 
 .dark-overlay {
   background-color: #000;
@@ -384,7 +477,7 @@ template {
   left: 0;
   right: 0;
   visibility: hidden;
-  transition: all .2s;
+  transition: all 0.2s;
   position: fixed; }
   .dark-overlay.active {
     opacity: 0.5;
@@ -422,9 +515,10 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
   line-height: 2rem;
-  color: #048BA8;
+  color: #16db93;
+  background-color: #048ba8;
   overflow-x: hidden;
-  letter-spacing: .1rem; }
+  letter-spacing: 0.1rem; }
 
 .fs-xs {
   font-size: 0.9rem !important; }
@@ -662,3 +756,58 @@ body {
 
 .text-center {
   text-align: center; }
+
+.bold {
+  font-weight: 700; }
+
+.card {
+  width: 100%;
+  display: flex;
+  font-size: 1.6rem;
+  color: #000;
+  justify-content: space-between;
+  border: #16db93 3px solid;
+  background-color: #fff;
+  border-radius: 0.6rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem; }
+  .card__name {
+    color: black; }
+  .card__action {
+    color: gray;
+    font-size: 1.4rem; }
+  .card--vertical {
+    flex-direction: column;
+    justify-content: flex-start; }
+  .card__item {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center; }
+    .card__item:not(:first-child) {
+      font-size: 1.2rem; }
+    .card__item img {
+      min-height: 50px;
+      min-width: 50px;
+      max-height: 80px;
+      max-width: 80px; }
+  .card table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.4rem; }
+  .card th,
+  .card td {
+    text-align: left;
+    padding: 8px; }
+  .card tr:nth-child(even) {
+    background-color: #f2f2f2; }
+  .card th {
+    background-color: #16db93;
+    color: white; }
+
+.header {
+  width: 100%;
+  max-width: 40rem;
+  margin: auto; }
+  .header__logo {
+    width: inherit; }

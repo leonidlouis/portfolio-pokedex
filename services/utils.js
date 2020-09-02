@@ -1,7 +1,7 @@
-import _ from './lodash'
+import _ from "./lodash";
 
-const toCamel = data => _.mapKeys(data, (v, k) => _.camelCase(k))
+const toCamel = (data) => _.mapKeys(data, (v, k) => _.camelCase(k));
 
 export default {
-  toCamel
-}
+  toCamel,
+};
