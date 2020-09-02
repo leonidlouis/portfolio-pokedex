@@ -1,0 +1,18 @@
+{
+    "apps": [
+    {
+        "exec_mode": "cluster",
+        "script": "./server.js",
+        "instances": "max",
+        "autorestart": true,
+        "node_args": ["--stack-size=1024"],
+        "name": "portfolio-pokedex",
+        "env": {
+            "PORT": 3000,
+            "NODE_ENV": "production"
+        },
+        "error_file": "../nodelog/portfolio-pokedex.err.log",
+        "out_file": "../nodelog/portfolio-pokedex.out.log"
+    }
+]
+}
