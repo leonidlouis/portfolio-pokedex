@@ -1,9 +1,10 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO -->
-<br />
 <p align="center">
   <h1 align="center">Portfolio - POKEDEX</h3>
+  <h3 align="center">
+    <a href="https://pokedex.leonid.id/" target="_blank">LINK TO LIVE PAGE</a>
+  </h3>
 </p>
 
 <!-- TABLE OF CONTENTS -->
