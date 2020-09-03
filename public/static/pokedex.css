@@ -468,6 +468,10 @@ template {
   .container--width-80 {
     width: 80vw; }
 
+.flex-center {
+  display: flex;
+  justify-content: center; }
+
 .dark-overlay {
   background-color: #000;
   opacity: 0;

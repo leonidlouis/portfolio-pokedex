@@ -3,8 +3,10 @@ import PokedexActions from "../redux/reducer/pokedex";
 import { useSelector, useDispatch } from "react-redux";
 import _ from "../services/lodash";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import constant from "../constant";
+import SelectFilterType from "../components/select_filter_type";
+import PokemonList from "../components/pokemon_list";
+import Header from "../components/header";
 
 const Index = () => {
   const {
@@ -16,11 +18,9 @@ const Index = () => {
   } = useSelector((state) => state.pokedex);
 
   const dispatch = useDispatch();
-  const router = useRouter();
   const [isBottom, setIsBottom] = useState(false);
   const [pageLocation, setPageLocation] = useState(1);
-  const [filter, setFilter] = useState("all");
-  const [shownPokemon, setShownPokemon] = useState([]);
+  const [filter, setFilter] = useState(constant.DEFAULT_TYPE_FILTER);
 
   const handleScroll = () => {
     const scrollTop =
@@ -31,7 +31,7 @@ const Index = () => {
       document.body.scrollHeight;
     if (
       scrollTop + window.innerHeight + 50 >= scrollHeight &&
-      filter === "all"
+      filter === constant.DEFAULT_TYPE_FILTER
     ) {
       setIsBottom(true);
     }
@@ -56,7 +56,7 @@ const Index = () => {
   }, [success]);
 
   useEffect(() => {
-    if (filter !== "all") {
+    if (filter !== constant.DEFAULT_TYPE_FILTER) {
       dispatch(PokedexActions.getPokemonListByTypeRequest(filter));
     } else {
       dispatch(PokedexActions.getPokemonListRequest());
@@ -65,71 +65,24 @@ const Index = () => {
 
   return (
     <section className="container container--center container--flex container--width-80">
-      <header className="header">
-        <img className="header__logo" src="/static/pokedex-logo.png"></img>
-      </header>
+      <Header />
       <section>
-        <div className="select-box m-bot-m">
-          FILTER BY TYPE:
-          <select
-            className="form__select-full"
-            value={filter}
-            onChange={(e) => {
-              console.log("masuk sini", e.target.value);
-              setPageLocation(1);
-              setFilter(e.target.value);
-            }}
-          >
-            <option value="all">show all</option>
-            {constant.POKEMON_TYPES.map((val, key) => (
-              <option key={key} value={val.name}>
-                {val.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        {filter === "all" && pokemonList
-          ? pokemonList.map((val, key) => {
-              return (
-                <div
-                  className="card"
-                  key={key}
-                  onClick={() => {
-                    const splitted = val.url.split("/");
-                    router.push(`/detail/${splitted[splitted.length - 2]}`);
-                  }}
-                >
-                  <div className="card__item bold">{val.name}</div>
-                  <span className="card__action">
-                    <i className="ai-arrow-right" />
-                  </span>
-                </div>
-              );
-            })
-          : pokemonListByType
-          ? pokemonListByType.map((val, key) => {
-              return (
-                <div
-                  className="card"
-                  key={key}
-                  onClick={() => {
-                    const splitted = val.pokemon.url.split("/");
-                    router.push(`/detail/${splitted[splitted.length - 2]}`);
-                  }}
-                >
-                  <div className="card__item bold">{val.pokemon.name}</div>
-                  <span className="card__action">
-                    <i className="ai-arrow-right" />
-                  </span>
-                </div>
-              );
-            })
-          : null}
-        {isBottom ? (
-          <div className="card">
-            <div className="card__item">Loading...</div>
-          </div>
-        ) : null}
+        <SelectFilterType
+          value={filter}
+          onChange={(e) => {
+            setPageLocation(1);
+            setFilter(e.target.value);
+          }}
+        />
+        <PokemonList
+          filter={filter}
+          pokemonList={pokemonList}
+          pokemonListByType={pokemonListByType}
+          error={error}
+          success={success}
+          isBottom={isBottom}
+          fetching={fetching}
+        />
       </section>
     </section>
   );

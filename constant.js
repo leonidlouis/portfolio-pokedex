@@ -1,4 +1,5 @@
 export default Object.freeze({
+  DEFAULT_TYPE_FILTER: 'all',
   POKEMON_TYPES: [
     {
       name: "normal",
