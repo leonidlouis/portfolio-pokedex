@@ -42,6 +42,7 @@
 - [NginX](https://www.nginx.com/)
 - [AWS - EC2](https://aws.amazon.com/ec2/)
 - [AWS - Route53](https://aws.amazon.com/route53/)
+- [Terraform](https://www.terraform.io/)
 
 <!-- GETTING STARTED -->
 
