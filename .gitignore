@@ -34,3 +34,5 @@ yarn-error.log*
 # vercel
 .vercel
 config.js
+
+/public/static/pokedex.css
